@@ -1,7 +1,7 @@
 <Project Sdk="MSBuild.Sdk.Extras/3.0.23">
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;Xamarin.iOS10;Xamarin.Mac20;MonoAndroid10.0;tizen40</TargetFrameworks>
-		<TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">$(TargetFrameworks);uap10.0.16299;</TargetFrameworks>
+		
 		<AssemblyName>ZXingNetMobile</AssemblyName>
 		<RootNamespace>ZXing.Net.Mobile</RootNamespace>
 		<PackageId>ZXing.Net.Mobile</PackageId>
@@ -102,6 +102,8 @@
 		<Compile Include="**\*.tizen.*.cs" />
 	</ItemGroup>
 	<ItemGroup>
+		<PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.14" />
+		<PackageReference Include="Tizen.NET" Version="9.0.0.16760" />
 		<PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
 		<PackageReference Include="ZXing.Net" Version="0.16.8" />
 	</ItemGroup>

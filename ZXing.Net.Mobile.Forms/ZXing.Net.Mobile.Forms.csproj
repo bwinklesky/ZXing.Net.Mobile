@@ -1,7 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.23">
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;Xamarin.iOS10;Xamarin.Mac20;MonoAndroid10.0;tizen40</TargetFrameworks>
-		<TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">$(TargetFrameworks);uap10.0.16299;</TargetFrameworks>
+		
 		<AssemblyName>ZXing.Net.Mobile.Forms</AssemblyName>
 		<RootNamespace>ZXing.Net.Mobile.Forms</RootNamespace>
 		<PackageId>ZXing.Net.Mobile.Forms</PackageId>
@@ -57,19 +57,12 @@
 		<Compile Include="**\*.netstandard.cs" />
 		<Compile Include="**\*.netstandard.*.cs" />
 	</ItemGroup>
-	<ItemGroup Condition=" $(TargetFramework.StartsWith('uap10.0')) ">
-		<PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.11" />
-		<Compile Include="**\*.uwp.cs" />
-		<Compile Include="**\*.uwp.*.cs" />
-		<SDKReference Include="WindowsMobile, Version=10.0.16299.0">
-			<Name>Windows Mobile Extensions for the UWP</Name>
-		</SDKReference>
-	</ItemGroup>
+	
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
 		<Compile Include="**\*.android.cs" />
 		<Compile Include="**\*.android.*.cs" />
 		<AndroidResource Include="Resources\xml\*.xml" />
-		<PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.2.0.6" />
+		<PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.3.1.1" />
 	</ItemGroup>
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
 		<Compile Include="**\*.ios.cs" />
@@ -93,5 +86,12 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\ZXing.Net.Mobile\ZXing.Net.Mobile.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="Properties\Resources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Resources.resx</DependentUpon>
+	  </None>
 	</ItemGroup>
 </Project>
